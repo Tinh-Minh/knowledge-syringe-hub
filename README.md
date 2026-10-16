@@ -1,14 +1,18 @@
-# Welcome to your Lovable project
+# Knowledge Syringe Hub
+
+làm giúp tôi trang web về ý tưởng đó là bán ống tim kiến thức có giới thiệu sản phẩm và cách dùng sản phẩm giúp tôi nhé
 
 This project was built with [Lovable](https://lovable.dev).
 
+**Live app**: https://knowledge-syringe-hub.lovable.app
+
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/9b2eb754-f36e-40e0-a2e2-c75870704968).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +24,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
