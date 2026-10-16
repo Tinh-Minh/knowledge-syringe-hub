@@ -109,19 +109,19 @@
   to { opacity: 1; transform: scale(1); }
 }
 @keyframes hero-breathe {
-  0% { transform: scale(1.05) translate3d(0, 0, 0); }
-  50% { transform: scale(1.11) translate3d(-1%, -0.8%, 0); }
-  100% { transform: scale(1.05) translate3d(0, 0, 0); }
+  0% { transform: scale(1.06) translate3d(0, 0, 0); }
+  50% { transform: scale(1.12) translate3d(-1.2%, 0, 0); }
+  100% { transform: scale(1.06) translate3d(0, 0, 0); }
 }
 @keyframes hero-sweep {
-  0% { transform: translateX(-140%) skewX(-14deg); opacity: 0; }
-  12% { opacity: 0.9; }
-  55% { opacity: 0.45; }
-  72%, 100% { transform: translateX(190%) skewX(-14deg); opacity: 0; }
+  0% { transform: translateX(-150%) skewX(-14deg); opacity: 0; }
+  10% { opacity: 1; }
+  60% { opacity: 0.75; }
+  75%, 100% { transform: translateX(200%) skewX(-14deg); opacity: 0; }
 }
 @keyframes hero-pulse {
-  0%, 100% { opacity: 0.25; }
-  50% { opacity: 0.7; }
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.9; }
 }
 @keyframes hero-scan {
   0% { transform: translateY(-120%); opacity: 0; }
@@ -130,53 +130,59 @@
   100% { transform: translateY(340%); opacity: 0; }
 }
 @keyframes hero-rise {
-  0% { transform: translate3d(0, 20px, 0) scale(0.5); opacity: 0; }
-  14% { opacity: 1; }
-  78% { opacity: 0.7; }
-  100% { transform: translate3d(0, -300px, 0) scale(1.2); opacity: 0; }
+  0% { transform: translate3d(0, 40px, 0) scale(0.6); opacity: 0; }
+  12% { opacity: 1; }
+  80% { opacity: 0.9; }
+  100% { transform: translate3d(0, -460px, 0) scale(1.1); opacity: 0; }
 }
 
 @utility hero-enter { animation: hero-enter 1.1s cubic-bezier(0.16, 1, 0.3, 1) both; }
-@utility hero-breathe { animation: hero-breathe 26s ease-in-out infinite; will-change: transform; }
+@utility hero-breathe { animation: hero-breathe 26s ease-in-out infinite; will-change: transform; transform-origin: 50% 16%; }
 @utility hero-sweep { animation: hero-sweep 7.5s ease-in-out infinite; }
 @utility hero-pulse { animation: hero-pulse 5.5s ease-in-out infinite; }
 @utility hero-scan { animation: hero-scan 9s linear infinite; }
 @utility hero-particle { animation: hero-rise 9s linear infinite; }
 
 @utility hero-parallax {
-  transform: translate3d(calc(var(--px, 0) * -14px), calc(var(--py, 0) * -10px), 0);
+  transform: translate3d(calc(var(--px, 0) * -16px), calc(var(--py, 0) * -5px), 0);
   transition: transform 0.45s ease-out;
 }
 @utility hero-parallax-far {
-  transform: translate3d(calc(var(--px, 0) * 12px), calc(var(--py, 0) * 9px), 0);
+  transform: translate3d(calc(var(--px, 0) * 14px), calc(var(--py, 0) * 5px), 0);
   transition: transform 0.45s ease-out;
 }
 
 @utility hero-glow {
+  mix-blend-mode: screen;
   background:
-    radial-gradient(58% 52% at 30% 46%, color-mix(in oklab, var(--primary) 28%, transparent), transparent 70%),
-    radial-gradient(46% 46% at 72% 42%, color-mix(in oklab, var(--secondary) 30%, transparent), transparent 72%);
+    radial-gradient(58% 52% at 30% 46%, color-mix(in oklab, var(--primary) 40%, transparent), transparent 70%),
+    radial-gradient(46% 46% at 72% 42%, color-mix(in oklab, var(--secondary) 42%, transparent), transparent 72%);
 }
 @utility hero-sweep-bar {
+  mix-blend-mode: screen;
   background: linear-gradient(
     100deg,
     transparent 0%,
-    color-mix(in oklab, var(--primary) 45%, transparent) 42%,
-    color-mix(in oklab, var(--foreground) 55%, transparent) 50%,
-    color-mix(in oklab, var(--primary) 45%, transparent) 58%,
+    color-mix(in oklab, var(--primary) 70%, transparent) 42%,
+    color-mix(in oklab, var(--foreground) 85%, transparent) 50%,
+    color-mix(in oklab, var(--primary) 70%, transparent) 58%,
     transparent 100%
   );
 }
 @utility hero-scan-bar {
+  mix-blend-mode: screen;
   background: linear-gradient(
     180deg,
     transparent,
-    color-mix(in oklab, var(--secondary) 38%, transparent),
+    color-mix(in oklab, var(--secondary) 60%, transparent),
     transparent
   );
 }
 @utility hero-vignette {
   background: radial-gradient(120% 90% at 50% 45%, transparent 52%, color-mix(in oklab, var(--background) 82%, transparent));
+}
+@utility hero-spark {
+  box-shadow: 0 0 14px 3px color-mix(in oklab, currentColor 65%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {
