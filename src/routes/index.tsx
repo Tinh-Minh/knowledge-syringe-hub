@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Brain, Zap, BookOpen, Infinity as Inf } from "lucide-react";
+import type { PointerEvent as ReactPointerEvent } from "react";
 import hero from "@/assets/hero.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -27,12 +28,68 @@ const packs = [
   { n: "Gói Vô Hạn", p: "199.900.000₫", d: "Toàn bộ tri thức nhân loại, cập nhật trọn đời" },
 ];
 
+const sparks = Array.from({ length: 22 }, (_, i) => ({
+  left: 5 + ((i * 4.4 + 5) % 90),
+  delay: (i % 10) * 0.8,
+  duration: 7 + (i % 6) * 1.5,
+  size: i % 3 === 0 ? 9 : 6,
+  gold: i % 2 === 0,
+}));
+
+function setParallax(el: HTMLElement, x: number, y: number) {
+  el.style.setProperty("--px", x.toFixed(3));
+  el.style.setProperty("--py", y.toFixed(3));
+}
+
 function Index() {
+  const onMove = (e: ReactPointerEvent<HTMLElement>) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    setParallax(e.currentTarget, (e.clientX - r.left) / r.width - 0.5, (e.clientY - r.top) / r.height - 0.5);
+  };
+  const onLeave = (e: ReactPointerEvent<HTMLElement>) => setParallax(e.currentTarget, 0, 0);
+
   return (
     <main>
-      <section className="relative">
-        <img src={hero.url} alt="Ống tiêm truyền tri thức vào não bộ" className="h-auto w-full" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      <section
+        className="hero-enter relative overflow-hidden"
+        onPointerMove={onMove}
+        onPointerLeave={onLeave}
+      >
+        <div>
+          <img
+            src={hero.url}
+            alt="Ống tiêm truyền tri thức vào não bộ"
+            className="hero-breathe block h-auto w-full"
+            decoding="async"
+          />
+        </div>
+
+        <div className="hero-glow hero-pulse hero-parallax-far pointer-events-none absolute inset-0" />
+
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="hero-sweep hero-sweep-bar absolute -inset-y-16 left-0 w-1/3" />
+        </div>
+
+        <div className="hero-scan hero-scan-bar pointer-events-none absolute inset-x-0 top-0 h-1/3 opacity-70" />
+
+        <div className="hero-parallax-far pointer-events-none absolute inset-0 overflow-hidden">
+          {sparks.map((s, i) => (
+            <span
+              key={i}
+              className={`hero-particle hero-spark absolute bottom-[6%] rounded-full ${s.gold ? "bg-primary text-primary" : "bg-secondary text-secondary"}`}
+              style={{
+                left: `${s.left}%`,
+                width: `${s.size}px`,
+                height: `${s.size}px`,
+                animationDelay: `${s.delay}s`,
+                animationDuration: `${s.duration}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="hero-vignette pointer-events-none absolute inset-0" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-20 text-center">
