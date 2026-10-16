@@ -28,11 +28,11 @@ const packs = [
   { n: "Gói Vô Hạn", p: "199.900.000₫", d: "Toàn bộ tri thức nhân loại, cập nhật trọn đời" },
 ];
 
-const sparks = Array.from({ length: 18 }, (_, i) => ({
-  left: 3 + ((i * 5.6 + 3) % 94),
-  delay: (i % 9) * 0.9,
+const sparks = Array.from({ length: 22 }, (_, i) => ({
+  left: 5 + ((i * 4.4 + 5) % 90),
+  delay: (i % 10) * 0.8,
   duration: 7 + (i % 6) * 1.5,
-  size: i % 3 === 0 ? 5 : 3,
+  size: i % 3 === 0 ? 9 : 6,
   gold: i % 2 === 0,
 }));
 
@@ -70,13 +70,13 @@ function Index() {
           <div className="hero-sweep hero-sweep-bar absolute -inset-y-16 left-0 w-1/3" />
         </div>
 
-        <div className="hero-scan hero-scan-bar pointer-events-none absolute inset-x-0 top-0 h-1/3 opacity-45" />
+        <div className="hero-scan hero-scan-bar pointer-events-none absolute inset-x-0 top-0 h-1/3 opacity-70" />
 
         <div className="hero-parallax-far pointer-events-none absolute inset-0 overflow-hidden">
           {sparks.map((s, i) => (
             <span
               key={i}
-              className={`hero-particle absolute bottom-0 rounded-full blur-[1px] ${s.gold ? "bg-primary" : "bg-secondary"}`}
+              className={`hero-particle hero-spark absolute bottom-[6%] rounded-full ${s.gold ? "bg-primary text-primary" : "bg-secondary text-secondary"}`}
               style={{
                 left: `${s.left}%`,
                 width: `${s.size}px`,
