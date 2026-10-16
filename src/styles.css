@@ -109,9 +109,8 @@
   to { opacity: 1; transform: scale(1); }
 }
 @keyframes hero-breathe {
-  0% { transform: scale(1.06) translate3d(0, 0, 0); }
-  50% { transform: scale(1.12) translate3d(-1.2%, 0, 0); }
-  100% { transform: scale(1.06) translate3d(0, 0, 0); }
+  0%, 100% { filter: saturate(1) brightness(1); }
+  50% { filter: saturate(1.16) brightness(1.08); }
 }
 @keyframes hero-sweep {
   0% { transform: translateX(-150%) skewX(-14deg); opacity: 0; }
@@ -137,7 +136,7 @@
 }
 
 @utility hero-enter { animation: hero-enter 1.1s cubic-bezier(0.16, 1, 0.3, 1) both; }
-@utility hero-breathe { animation: hero-breathe 26s ease-in-out infinite; will-change: transform; transform-origin: 50% 16%; }
+@utility hero-breathe { animation: hero-breathe 9s ease-in-out infinite; will-change: filter; }
 @utility hero-sweep { animation: hero-sweep 7.5s ease-in-out infinite; }
 @utility hero-pulse { animation: hero-pulse 5.5s ease-in-out infinite; }
 @utility hero-scan { animation: hero-scan 9s linear infinite; }

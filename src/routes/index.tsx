@@ -55,7 +55,7 @@ function Index() {
         onPointerMove={onMove}
         onPointerLeave={onLeave}
       >
-        <div className="hero-parallax">
+        <div>
           <img
             src={hero.url}
             alt="Ống tiêm truyền tri thức vào não bộ"
