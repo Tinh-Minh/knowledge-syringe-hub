@@ -22,9 +22,9 @@ const features = [
 ];
 
 const packs = [
-  { n: "Gói Khởi Đầu", p: "990.000₫", d: "1 lĩnh vực tự chọn (ví dụ: tiếng Anh giao tiếp)" },
-  { n: "Gói Chuyên Gia", p: "4.990.000₫", d: "5 lĩnh vực chuyên sâu cấp đại học", hot: true },
-  { n: "Gói Vô Hạn", p: "19.990.000₫", d: "Toàn bộ tri thức nhân loại, cập nhật trọn đời" },
+  { n: "Gói Khởi Đầu", p: "9.900.000₫", d: "1 lĩnh vực tự chọn (ví dụ: tiếng Anh giao tiếp)" },
+  { n: "Gói Chuyên Gia", p: "49.900.000₫", d: "5 lĩnh vực chuyên sâu cấp đại học", hot: true },
+  { n: "Gói Vô Hạn", p: "199.900.000₫", d: "Toàn bộ tri thức nhân loại, cập nhật trọn đời" },
 ];
 
 function Index() {
